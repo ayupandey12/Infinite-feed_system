@@ -1,4 +1,10 @@
 import "dotenv/config"
 import {prisma} from "@repo/db"
-const user=await prisma.post.findMany({});
-console.log(user)
+import express from "express";
+import postapi from "./routers/post.js"
+
+const app=express()
+app.use('./api',postapi)
+app.listen(3000,()=>{
+    console.log("server in going and going......")
+})
