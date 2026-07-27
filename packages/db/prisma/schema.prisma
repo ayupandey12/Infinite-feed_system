@@ -26,6 +26,7 @@ model Post{
   user User  @relation(fields: [user_id],references: [id])
   likes Like[]
   @@map("post")
+  @@index([user_id])
 }
 model Like{
   id String @id @default(uuid())
