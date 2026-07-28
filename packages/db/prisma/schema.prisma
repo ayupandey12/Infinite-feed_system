@@ -20,13 +20,14 @@ model User{
   @@map("user")
 }
 model Post{
-  id String @id @default(uuid())
+  id String @id @default(uuid(7))
   user_id String 
   data String
   user User  @relation(fields: [user_id],references: [id])
   likes Like[]
   @@map("post")
   @@index([user_id])
+  @@index([id(sort: Asc)]) 
 }
 model Like{
   id String @id @default(uuid())
