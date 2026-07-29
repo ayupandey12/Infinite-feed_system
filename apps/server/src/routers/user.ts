@@ -2,7 +2,7 @@ import "dotenv/config"
 import {prisma} from "@repo/db"
 import {Router,Response,Request,NextFunction} from "express"
 
-const router=Router()
+const router:Router=Router()
 router.post("/user",async (req:Request,res:Response,next:NextFunction)=>{
        const {name,email}=req.body
        try {
@@ -41,3 +41,4 @@ router.get("/user/posts",async(req:Request,res:Response,next:NextFunction)=>{
          next(error)
       }
 })
+export default router
